@@ -7,5 +7,12 @@ export async function onRequest({ env, params }) {
   const status = await env.USERS.get(token);
   if (status !== "active") return new Response("Access denied", { status: 403 });
 
-  return new Response("Access granted");
+  // достаём файл с GitHub
+  const githubUrl = "https://raw.githubusercontent.com/<username>/<repo>/main/keys.txt";
+  const resp = await fetch(githubUrl);
+  if (!resp.ok) return new Response("Failed to fetch keys", { status: 502 });
+
+  const text = await resp.text();
+
+  return new Response(text, { headers: { "Content-Type": "text/plain" } });
 }
