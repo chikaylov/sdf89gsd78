@@ -8,7 +8,7 @@ export async function onRequest({ env, params }) {
   if (status !== "active") return new Response("Access denied", { status: 403 });
 
   // достаём файл с GitHub
-  const githubUrl = "https://raw.githubusercontent.com/<username>/<repo>/main/keys.txt";
+  const githubUrl = "https://github.com/chikaylov/sdf89gsd78/blob/main/sdfs65fhfg056jf";
   const resp = await fetch(githubUrl);
   if (!resp.ok) return new Response("Failed to fetch keys", { status: 502 });
 
