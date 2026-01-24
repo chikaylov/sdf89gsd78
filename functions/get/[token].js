@@ -13,7 +13,7 @@ export async function onRequest({ env, params }) {
 
   // 2. Забираем файл с GitHub через API (RAW)
   const githubUrl =
-    "https://api.github.com/repos/chikaylov/sdf89gsd78/contents/sdfs65fhfg056jf";
+    "https://api.github.com/repos/chikaylov/sdf89gsd78/contents/sdfs65fhfg056jf.txt";
 
   const resp = await fetch(githubUrl, {
     headers: {
